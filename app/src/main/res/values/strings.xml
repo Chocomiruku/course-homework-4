@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name" translatable="false">Homework 4: Android OS, Activity</string>
+    <string name="click_btn" translatable="false">Click me</string>
+    <string name="btn_first" translatable="false">First button</string>
+    <string name="btn_second" translatable="false">Second button</string>
+    <string name="btn_third" translatable="false">Third button</string>
+</resources>
