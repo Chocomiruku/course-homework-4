@@ -43,7 +43,6 @@ class MainActivity : AppCompatActivity() {
         binding.img.tag = imgResId
         binding.img.setImageResource(imgResId)
 
-
         binding.btnNavigateToSecondActivity.setOnClickListener {
             val intent = Intent(this, SecondActivity::class.java)
             resultLauncher.launch(intent)
