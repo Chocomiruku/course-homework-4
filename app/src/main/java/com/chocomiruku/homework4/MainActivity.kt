@@ -7,13 +7,15 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.chocomiruku.homework4.databinding.ActivityMainBinding
 
+const val KEY_RES_ID = "key_res_id"
+
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     private val resultLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
-                val data: Intent? = result.data
+                val data = result.data
                 data?.let {
                     when (data.getIntExtra(KEY_IMG_NUM, 0)) {
                         1 -> {
@@ -39,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        val imgResId = savedInstanceState?.getInt(KEY_IMG_NUM) ?: R.drawable.two
+        val imgResId = savedInstanceState?.getInt(KEY_RES_ID) ?: R.drawable.two
         binding.img.tag = imgResId
         binding.img.setImageResource(imgResId)
 
@@ -52,8 +54,7 @@ class MainActivity : AppCompatActivity() {
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         binding.img.tag?.let {
-            val imgResId = binding.img.tag as Int
-            outState.putInt(KEY_IMG_NUM, imgResId)
+            outState.putInt(KEY_RES_ID, binding.img.tag as Int)
         }
     }
 }
